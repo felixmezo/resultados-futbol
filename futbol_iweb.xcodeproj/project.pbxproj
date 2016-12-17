@@ -7,13 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03426EE61E03F09A005D8E7D /* ClasificacionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03426EE51E03F09A005D8E7D /* ClasificacionTableViewController.swift */; };
+		03426EE81E045797005D8E7D /* PartidosHoyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03426EE71E045797005D8E7D /* PartidosHoyTableViewController.swift */; };
+		03426EEA1E045833005D8E7D /* PartidosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03426EE91E045833005D8E7D /* PartidosTableViewCell.swift */; };
+		03426EEE1E047CEE005D8E7D /* ProximosPartidosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03426EED1E047CEE005D8E7D /* ProximosPartidosTableViewController.swift */; };
+		03426EF01E04A039005D8E7D /* ListadoEquiposTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03426EEF1E04A039005D8E7D /* ListadoEquiposTableViewController.swift */; };
+		03426EF21E04A308005D8E7D /* DetalleEquipoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03426EF11E04A308005D8E7D /* DetalleEquipoViewController.swift */; };
+		03426EF41E056106005D8E7D /* PlantillaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03426EF31E056106005D8E7D /* PlantillaTableViewController.swift */; };
 		03D9DFC01E02085F008749FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D9DFBF1E02085F008749FE /* AppDelegate.swift */; };
-		03D9DFC21E02085F008749FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D9DFC11E02085F008749FE /* ViewController.swift */; };
 		03D9DFC51E02085F008749FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D9DFC31E02085F008749FE /* Main.storyboard */; };
 		03D9DFC71E02085F008749FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03D9DFC61E02085F008749FE /* Assets.xcassets */; };
 		03D9DFCA1E02085F008749FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03D9DFC81E02085F008749FE /* LaunchScreen.storyboard */; };
 		03D9DFD51E02085F008749FE /* futbol_iwebTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D9DFD41E02085F008749FE /* futbol_iwebTests.swift */; };
 		03D9DFE01E02085F008749FE /* futbol_iwebUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D9DFDF1E02085F008749FE /* futbol_iwebUITests.swift */; };
+		03D9DFEE1E0208AF008749FE /* LigasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D9DFED1E0208AF008749FE /* LigasTableViewController.swift */; };
+		03D9DFF01E0208FB008749FE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D9DFEF1E0208FB008749FE /* Constants.swift */; };
+		03D9DFF41E034803008749FE /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D9DFF31E034803008749FE /* InitialViewController.swift */; };
+		03D9DFFA1E0350D1008749FE /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D9DFF91E0350D1008749FE /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +44,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03426EE51E03F09A005D8E7D /* ClasificacionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClasificacionTableViewController.swift; path = ../ClasificacionTableViewController.swift; sourceTree = "<group>"; };
+		03426EE71E045797005D8E7D /* PartidosHoyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartidosHoyTableViewController.swift; sourceTree = "<group>"; };
+		03426EE91E045833005D8E7D /* PartidosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartidosTableViewCell.swift; sourceTree = "<group>"; };
+		03426EED1E047CEE005D8E7D /* ProximosPartidosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximosPartidosTableViewController.swift; sourceTree = "<group>"; };
+		03426EEF1E04A039005D8E7D /* ListadoEquiposTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListadoEquiposTableViewController.swift; sourceTree = "<group>"; };
+		03426EF11E04A308005D8E7D /* DetalleEquipoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalleEquipoViewController.swift; sourceTree = "<group>"; };
+		03426EF31E056106005D8E7D /* PlantillaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantillaTableViewController.swift; sourceTree = "<group>"; };
 		03D9DFBC1E02085F008749FE /* futbol_iweb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = futbol_iweb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03D9DFBF1E02085F008749FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		03D9DFC11E02085F008749FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		03D9DFC41E02085F008749FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		03D9DFC61E02085F008749FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03D9DFC91E02085F008749FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +63,10 @@
 		03D9DFDB1E02085F008749FE /* futbol_iwebUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = futbol_iwebUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03D9DFDF1E02085F008749FE /* futbol_iwebUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = futbol_iwebUITests.swift; sourceTree = "<group>"; };
 		03D9DFE11E02085F008749FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03D9DFED1E0208AF008749FE /* LigasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LigasTableViewController.swift; sourceTree = "<group>"; };
+		03D9DFEF1E0208FB008749FE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		03D9DFF31E034803008749FE /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitialViewController.swift; path = ../InitialViewController.swift; sourceTree = "<group>"; };
+		03D9DFF91E0350D1008749FE /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,10 +118,20 @@
 			isa = PBXGroup;
 			children = (
 				03D9DFBF1E02085F008749FE /* AppDelegate.swift */,
-				03D9DFC11E02085F008749FE /* ViewController.swift */,
 				03D9DFC31E02085F008749FE /* Main.storyboard */,
+				03426EF31E056106005D8E7D /* PlantillaTableViewController.swift */,
+				03426EF11E04A308005D8E7D /* DetalleEquipoViewController.swift */,
+				03426EEF1E04A039005D8E7D /* ListadoEquiposTableViewController.swift */,
+				03426EE91E045833005D8E7D /* PartidosTableViewCell.swift */,
+				03426EE51E03F09A005D8E7D /* ClasificacionTableViewController.swift */,
+				03D9DFF31E034803008749FE /* InitialViewController.swift */,
+				03426EE71E045797005D8E7D /* PartidosHoyTableViewController.swift */,
+				03D9DFF91E0350D1008749FE /* InfoViewController.swift */,
+				03D9DFED1E0208AF008749FE /* LigasTableViewController.swift */,
 				03D9DFC61E02085F008749FE /* Assets.xcassets */,
+				03426EED1E047CEE005D8E7D /* ProximosPartidosTableViewController.swift */,
 				03D9DFC81E02085F008749FE /* LaunchScreen.storyboard */,
+				03D9DFEF1E0208FB008749FE /* Constants.swift */,
 				03D9DFCB1E02085F008749FE /* Info.plist */,
 			);
 			path = futbol_iweb;
@@ -259,8 +289,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03D9DFC21E02085F008749FE /* ViewController.swift in Sources */,
+				03D9DFEE1E0208AF008749FE /* LigasTableViewController.swift in Sources */,
+				03426EF01E04A039005D8E7D /* ListadoEquiposTableViewController.swift in Sources */,
 				03D9DFC01E02085F008749FE /* AppDelegate.swift in Sources */,
+				03D9DFF01E0208FB008749FE /* Constants.swift in Sources */,
+				03426EEE1E047CEE005D8E7D /* ProximosPartidosTableViewController.swift in Sources */,
+				03D9DFF41E034803008749FE /* InitialViewController.swift in Sources */,
+				03D9DFFA1E0350D1008749FE /* InfoViewController.swift in Sources */,
+				03426EF21E04A308005D8E7D /* DetalleEquipoViewController.swift in Sources */,
+				03426EE81E045797005D8E7D /* PartidosHoyTableViewController.swift in Sources */,
+				03426EF41E056106005D8E7D /* PlantillaTableViewController.swift in Sources */,
+				03426EE61E03F09A005D8E7D /* ClasificacionTableViewController.swift in Sources */,
+				03426EEA1E045833005D8E7D /* PartidosTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +545,7 @@
 				03D9DFE61E02085F008749FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03D9DFE71E02085F008749FE /* Build configuration list for PBXNativeTarget "futbol_iwebTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +554,7 @@
 				03D9DFE91E02085F008749FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03D9DFEA1E02085F008749FE /* Build configuration list for PBXNativeTarget "futbol_iwebUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +563,7 @@
 				03D9DFEC1E02085F008749FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
