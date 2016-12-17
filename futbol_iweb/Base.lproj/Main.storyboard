@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,29 +36,49 @@
                         <viewControllerLayoutGuide type="bottom" id="B6F-cN-VOv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HBS-rN-Ywb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BIENVENIDO A RESULTADOS FÚBTOL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXN-uZ-vRx">
-                                <frame key="frameInset" minX="32" minY="44" width="310" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Developed by: Félix Mezo Asier Culebras" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGW-IP-rUg">
-                                <frame key="frameInset" minX="131" minY="489" width="113" height="73"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed by: Félix Mezo, Asier Culebras" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGW-IP-rUg">
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="balon" translatesAutoresizingMaskIntoConstraints="NO" id="KkT-Fn-Z2a">
-                                <frame key="frameInset" minX="67" minY="171" width="240" height="195"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balon" translatesAutoresizingMaskIntoConstraints="NO" id="K7p-Qy-YfA">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="LoM-ni-qfK" userLabel="height = 150"/>
+                                    <constraint firstAttribute="width" constant="180" id="zwC-HM-6aH"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BIENVENIDO A RESULTADOS FÚBTOL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXN-uZ-vRx">
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bGW-IP-rUg" firstAttribute="centerX" secondItem="HBS-rN-Ywb" secondAttribute="centerX" id="7Hh-jL-cw1"/>
+                            <constraint firstItem="bGW-IP-rUg" firstAttribute="top" secondItem="K7p-Qy-YfA" secondAttribute="bottom" constant="1" id="9Nl-gL-qht"/>
+                            <constraint firstItem="K7p-Qy-YfA" firstAttribute="centerY" secondItem="HBS-rN-Ywb" secondAttribute="centerY" id="MRq-dh-v9Y"/>
+                            <constraint firstItem="RXN-uZ-vRx" firstAttribute="centerX" secondItem="HBS-rN-Ywb" secondAttribute="centerX" id="mrt-TC-Odm"/>
+                            <constraint firstItem="K7p-Qy-YfA" firstAttribute="top" secondItem="RXN-uZ-vRx" secondAttribute="bottom" constant="8" id="rSZ-gu-v3S"/>
+                            <constraint firstItem="B6F-cN-VOv" firstAttribute="top" secondItem="bGW-IP-rUg" secondAttribute="bottom" constant="20" id="u3F-yq-lN6"/>
+                            <constraint firstItem="RXN-uZ-vRx" firstAttribute="top" secondItem="0ER-es-njR" secondAttribute="bottom" constant="32" id="uNZ-xR-MVN"/>
+                            <constraint firstItem="K7p-Qy-YfA" firstAttribute="centerX" secondItem="HBS-rN-Ywb" secondAttribute="centerX" id="vOZ-md-idd"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="rSZ-gu-v3S"/>
+                                <exclude reference="9Nl-gL-qht"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="rSZ-gu-v3S"/>
+                                <include reference="9Nl-gL-qht"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="INICIO" id="9hh-SK-eMW">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
@@ -65,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jao-RJ-gXx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1335.2" y="-1447.8260869565217"/>
+            <point key="canvasLocation" x="-1268" y="-1551"/>
         </scene>
         <!--PRINCIPALES LIGAS-->
         <scene sceneID="Ti5-qG-yIm">
@@ -91,50 +112,38 @@
             <objects>
                 <tableViewController title="PARTIDOS DE HOY DE LAS PRINCIPALES LIGAS" id="U9r-Ii-zh8" customClass="PartidosHoyTableViewController" customModule="futbol_iweb" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" id="fox-2k-E13">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="partidos cell" rowHeight="150" id="4Rg-Yb-a8v" customClass="PartidosTableViewCell" customModule="futbol_iweb" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Rg-Yb-a8v" id="aUU-SH-GuC">
-                                    <frame key="frameInset" width="375" height="149"/>
+                                    <frame key="frameInset" width="320" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Equipo Local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZX9-VQ-f7h">
-                                            <frame key="frameInset" minX="98" minY="19" width="198" height="42"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Equipo Local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZX9-VQ-f7h">
+                                            <frame key="frameInset" minX="63" minY="21" width="158" height="42"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Equipo Visitante" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwz-2M-Zv3">
-                                            <frame key="frameInset" minX="98" minY="75" width="198" height="42"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Equipo Visitante" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwz-2M-Zv3">
+                                            <frame key="frameInset" minX="63" minY="77" width="158" height="42"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="baM-8m-vX0">
-                                            <frame key="frameInset" minX="40" minY="20" width="42" height="45"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="baM-8m-vX0">
+                                            <frame key="frameInset" minX="13" minY="20" width="42" height="45"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kRT-r9-zIZ">
-                                            <frame key="frameInset" minX="40" minY="73" width="42" height="45"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kRT-r9-zIZ">
+                                            <frame key="frameInset" minX="13" minY="73" width="42" height="45"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hora" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4q-sG-eOp">
-                                            <frame key="frameInset" minX="277" minY="43" width="68" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Liga" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82r-sA-i5J">
-                                            <frame key="frameInset" minX="252" minY="65" width="119" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Liga" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="82r-sA-i5J">
+                                            <frame key="frameInset" minX="199" minY="65" width="113" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -142,18 +151,40 @@
                                             <frame key="frameInset" minX="378" minY="133" width="49" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yBZ-ga-0fh">
-                                            <frame key="frameInset" minX="295" minY="91" width="32" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yBZ-ga-0fh">
+                                            <frame key="frameInset" minX="236" minY="91" width="32" height="22"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fecha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1R-SX-iz5">
-                                            <frame key="frameInset" minX="250" minY="21" width="123" height="21"/>
+                                            <frame key="frameInset" minX="218" minY="21" width="76" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hora" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4q-sG-eOp">
+                                            <frame key="frameInset" minX="218" minY="40" width="68" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="nwz-2M-Zv3" secondAttribute="bottom" constant="22" id="AaW-oj-TMj"/>
+                                        <constraint firstItem="kRT-r9-zIZ" firstAttribute="top" secondItem="baM-8m-vX0" secondAttribute="bottom" constant="8" id="Af9-Qd-Nua"/>
+                                        <constraint firstItem="nwz-2M-Zv3" firstAttribute="top" secondItem="ZX9-VQ-f7h" secondAttribute="bottom" constant="14" id="C2f-6u-bKO"/>
+                                        <constraint firstItem="ZX9-VQ-f7h" firstAttribute="leading" secondItem="baM-8m-vX0" secondAttribute="trailing" constant="8" id="CC1-gF-Vm0"/>
+                                        <constraint firstItem="baM-8m-vX0" firstAttribute="top" secondItem="aUU-SH-GuC" secondAttribute="topMargin" constant="12" id="EYd-CV-Jtg"/>
+                                        <constraint firstItem="82r-sA-i5J" firstAttribute="top" secondItem="ZX9-VQ-f7h" secondAttribute="bottom" constant="2" id="JLK-co-3wW"/>
+                                        <constraint firstItem="baM-8m-vX0" firstAttribute="leading" secondItem="aUU-SH-GuC" secondAttribute="leadingMargin" constant="5" id="JqB-rY-cBb"/>
+                                        <constraint firstItem="yBZ-ga-0fh" firstAttribute="leading" secondItem="nwz-2M-Zv3" secondAttribute="trailing" constant="15" id="KY4-O5-Cub"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="kRT-r9-zIZ" secondAttribute="bottom" constant="23" id="O6S-AT-514"/>
+                                        <constraint firstItem="ZX9-VQ-f7h" firstAttribute="top" secondItem="aUU-SH-GuC" secondAttribute="topMargin" constant="13" id="Yrc-lc-I7w"/>
+                                        <constraint firstItem="nwz-2M-Zv3" firstAttribute="leading" secondItem="kRT-r9-zIZ" secondAttribute="trailing" constant="8" id="b6h-4X-ZQc"/>
+                                        <constraint firstItem="kRT-r9-zIZ" firstAttribute="leading" secondItem="aUU-SH-GuC" secondAttribute="leadingMargin" constant="5" id="boc-Ew-wK2"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ZX9-VQ-f7h" secondAttribute="trailing" constant="91" id="iOd-c9-7Zc"/>
+                                        <constraint firstItem="kRT-r9-zIZ" firstAttribute="top" secondItem="baM-8m-vX0" secondAttribute="bottom" constant="8" id="wvH-WW-PxB"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
@@ -180,7 +211,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iw9-I3-bFQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-474.39999999999998" y="24.7376311844078"/>
+            <point key="canvasLocation" x="-476.25" y="23.75"/>
         </scene>
         <!--PARTIDOS DE HOY-->
         <scene sceneID="TyM-1L-TLx">
@@ -206,15 +237,15 @@
             <objects>
                 <tableViewController id="oJl-Az-mqx" customClass="LigasTableViewController" customModule="futbol_iweb" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" id="3JI-9o-Jq4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="liga cell" selectionStyle="gray" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="celda liga" textLabel="DCC-vV-Nnu" detailTextLabel="xIt-p4-gFk" rowHeight="85" style="IBUITableViewCellStyleSubtitle" id="uJ0-XQ-UCr">
-                                <rect key="frame" x="0.0" y="92" width="375" height="85"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uJ0-XQ-UCr" id="6bg-fd-e2u">
-                                    <frame key="frameInset" width="308" height="84"/>
+                                    <frame key="frameInset" width="253" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DCC-vV-Nnu">
@@ -264,7 +295,7 @@
                         <viewControllerLayoutGuide type="bottom" id="duN-g7-Z1y"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VaD-AY-TLn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Fc-T4-H1f">
@@ -347,15 +378,15 @@
             <objects>
                 <tableViewController id="Wc7-jv-b8c" customClass="ClasificacionTableViewController" customModule="futbol_iweb" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zk1-Gi-cIZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celda clasificacion" textLabel="Kaw-iS-FlO" detailTextLabel="Cnv-uk-an5" rowHeight="67" style="IBUITableViewCellStyleValue1" id="Fcb-hT-sKb">
-                                <rect key="frame" x="0.0" y="92" width="375" height="67"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="67"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fcb-hT-sKb" id="dfm-NR-gAB">
-                                    <frame key="frameInset" width="375" height="66"/>
+                                    <frame key="frameInset" width="320" height="66"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kaw-iS-FlO">
@@ -366,7 +397,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cnv-uk-an5">
-                                            <frame key="frameInset" minX="316" minY="23" width="44" height="21"/>
+                                            <frame key="frameInset" minX="261" minY="23" width="44" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -393,15 +424,15 @@
             <objects>
                 <tableViewController title="PRÓXIMOS PARTIDOS" id="W9B-gh-ghv" customClass="ProximosPartidosTableViewController" customModule="futbol_iweb" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" id="j0B-Iz-Q0u">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="partidos cell" rowHeight="150" id="I4f-Nd-7TG" customClass="PartidosTableViewCell" customModule="futbol_iweb" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I4f-Nd-7TG" id="ief-7Y-zu9">
-                                    <frame key="frameInset" width="375" height="149"/>
+                                    <frame key="frameInset" width="320" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Equipo Local" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdY-wd-Xk8">
@@ -489,19 +520,19 @@
             <objects>
                 <tableViewController id="kOO-M5-hlU" customClass="ListadoEquiposTableViewController" customModule="futbol_iweb" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="wyJ-1m-8RD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="celda listado" textLabel="ecQ-zL-Lo4" rowHeight="71" style="IBUITableViewCellStyleDefault" id="zZL-2I-j2q">
-                                <rect key="frame" x="0.0" y="92" width="375" height="71"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zZL-2I-j2q" id="B9g-Hd-bEf">
-                                    <frame key="frameInset" width="308" height="70"/>
+                                    <frame key="frameInset" width="253" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ecQ-zL-Lo4">
-                                            <frame key="frameInset" minX="15" width="293" height="70"/>
+                                            <frame key="frameInset" minX="15" width="238" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -535,7 +566,7 @@
                         <viewControllerLayoutGuide type="bottom" id="CvX-ZU-uvH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Eyo-6V-PHH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre Completo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLA-nL-rgc">
@@ -575,8 +606,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m26-pv-qcF">
-                                <frame key="frameInset" minY="352" width="375" height="168"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <frame key="frameInset" minX="-0.31%" minY="352" width="100.31%" height="168"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bi0-gr-vOl">
                                 <frame key="frameInset" minX="115" minY="538" width="144" height="46"/>
@@ -616,19 +647,19 @@
             <objects>
                 <tableViewController id="bcg-hA-KaI" customClass="PlantillaTableViewController" customModule="futbol_iweb" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="28" sectionFooterHeight="28" id="oZA-oE-2Px">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell jugador" textLabel="8kX-EX-yED" rowHeight="72" style="IBUITableViewCellStyleDefault" id="NBZ-Ic-Bny">
-                                <rect key="frame" x="0.0" y="92" width="375" height="72"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NBZ-Ic-Bny" id="I4X-8f-Yur">
-                                    <frame key="frameInset" width="375" height="71"/>
+                                    <frame key="frameInset" width="320" height="71"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8kX-EX-yED">
-                                            <frame key="frameInset" minX="15" width="345" height="71"/>
+                                            <frame key="frameInset" minX="15" width="290" height="71"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
