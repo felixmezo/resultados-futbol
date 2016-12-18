@@ -34,14 +34,6 @@ class DetalleEquipoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadDetalleEquipo()
-        
-        self.title = nombreEquipoCorto
-        nombreCompleto?.text = nombreEquipoLargo
-        escudoImagen?.image = escudo
-        banderaImagen?.image = bandera
-        nombreEntrenador?.text = entrenador
-        nombreEstadio?.text = estadio
-        estadioImagen?.image = estadioFoto
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,17 +66,20 @@ class DetalleEquipoViewController: UIViewController {
                             if let nombreLargo = equipo["fullName"] as? String {
                                 DispatchQueue.main.async {
                                     self.nombreEquipoLargo = nombreLargo
+                                    self.nombreCompleto?.text = self.nombreEquipoLargo
                                 }
                             }
                             if let nombreCorto = equipo["nameShow"] as? String{
                                 DispatchQueue.main.async {
                                     self.nombreEquipoCorto = nombreCorto
+                                    self.title = self.nombreEquipoCorto
                                 }
                             }
                             if let escudoUrl = equipo["shield"] as? String {
                                 if let imageEscudo = self.imagesEscudo[escudoUrl] {
                                     DispatchQueue.main.async {
                                         self.escudo = imageEscudo
+                                        self.escudoImagen?.image = self.escudo
                                     }
                                 } else {
                                     if let url = URL(string: escudoUrl){
@@ -93,6 +88,7 @@ class DetalleEquipoViewController: UIViewController {
                                                 DispatchQueue.main.async {
                                                     self.imagesEscudo[escudoUrl] = imageEscudoDescargada
                                                     self.escudo = imageEscudoDescargada
+                                                    self.escudoImagen?.image = self.escudo
                                                 }
                                             }
                                         }
@@ -102,17 +98,20 @@ class DetalleEquipoViewController: UIViewController {
                             if let entrenador = equipo["managerNow"] as? String {
                                 DispatchQueue.main.async {
                                     self.entrenador = entrenador
+                                    self.nombreEntrenador?.text = self.entrenador
                                 }
                             }
                             if let estadio = equipo["stadium"] as? String {
                                 DispatchQueue.main.async {
                                     self.estadio = estadio
+                                    self.nombreEstadio?.text = self.estadio
                                 }
                             }
                             if let estadioUrl = equipo["img_stadium"] as? String {
                                 if let imageEstadioYaDescargada = self.imagesEstadio[estadioUrl] {
                                     DispatchQueue.main.async {
                                         self.estadioFoto = imageEstadioYaDescargada
+                                        self.estadioImagen?.image = self.estadioFoto
                                     }
                                 } else {
                                     if let url = URL(string: estadioUrl){
@@ -121,6 +120,7 @@ class DetalleEquipoViewController: UIViewController {
                                                 DispatchQueue.main.async {
                                                     self.imagesEstadio[estadioUrl] = imageEstadioDescargada
                                                     self.estadioFoto = imageEstadioDescargada
+                                                    self.estadioImagen?.image = self.estadioFoto
                                                 }
                                             }
                                         }
@@ -131,6 +131,9 @@ class DetalleEquipoViewController: UIViewController {
                                 DispatchQueue.main.async {
                                     self.plantilla = plantilla
                                 }
+                            }
+                            DispatchQueue.main.async {
+                                self.banderaImagen?.image = self.bandera
                             }
                         }
                     }
