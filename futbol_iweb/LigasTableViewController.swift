@@ -13,6 +13,8 @@ class LigasTableViewController: UITableViewController {
     var ligas = [[String:Any]]()
     var images = [String:UIImage]()
     
+    fileprivate let API_FUTBOL_URL = "http://apiclient.resultados-futbol.com/scripts/api/api.php?key=833e3ee072e13520e85973b61b49f1c3&tz=Europe/Madrid&format=json&"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadLigas()
@@ -26,34 +28,44 @@ class LigasTableViewController: UITableViewController {
     // MARK: - Descargar Ligas
     
     private func downloadLigas(){
-        
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        defer {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        }
-        
-         let url = URL(string: "http://apiclient.resultados-futbol.com/scripts/api/api.php?key=833e3ee072e13520e85973b61b49f1c3&tz=Europe/Madrid&format=json&req=leagues&top=1&year=2017&limit=30")
+        let query = "req=leagues&top=1&year=2017"
+        let urlLigas = "\(API_FUTBOL_URL)\(query)"
+
+        let url = URL(string: urlLigas)
             
-            print(url)
+        print(url)
         
-        guard let data = try? Data(contentsOf: url!) else {
-            print("Error: no se han podido descargar los datos.")
-            return
-        }
-        
-        do {
-            if let dic = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:[[String:Any]]] {
-                print(dic)
-                if let dic2 = dic["league"] {
-                    self.ligas = dic2
-                    tableView.reloadData()
+        let queue = DispatchQueue(label: "Download Ligas")
+        queue.async {
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            }
+            defer {
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
             }
-        }catch let err  {
-            print("No puedo sacar el JSON:", (err as NSError).localizedDescription)
-            print(NSString(data: data, encoding: String.Encoding.utf8.rawValue) ?? "Ni idea de lo que esta pasando.")
-        }
-        
+            if let data = try? Data(contentsOf: url!){
+                print("He entrado al if de descargar los datos de las ligas y lo he hecho")
+                do {
+                    if let dic = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:[[String:Any]]] {
+                        print(dic)
+                        if let dic2 = dic["league"] {
+                            self.ligas = dic2
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }catch let err  {
+                    print("No puedo sacar el JSON:", (err as NSError).localizedDescription)
+                    print(NSString(data: data, encoding: String.Encoding.utf8.rawValue) ?? "Ni idea de lo que esta pasando.")
+                }
+            }else {
+                print("Error: no se han podido descargar los datos.")
+                return
+            }
+        }        
     }
     
     // MARK: - Table view data source

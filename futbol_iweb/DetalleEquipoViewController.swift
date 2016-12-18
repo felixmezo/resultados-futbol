@@ -55,70 +55,95 @@ class DetalleEquipoViewController: UIViewController {
         let url = URL(string: urlClasificacion)
         print(url)
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        defer {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        }
-        
-        guard let data = try? Data(contentsOf: url!) else {
-            print("Error: no se han podido descargar los datos.")
-            return
-        }
-        
-        do {
-            if let dic = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:Any] {
-                print(dic)
-                if let equipo = dic["team"] as? [String:Any]{
-                    if let nombreLargo = equipo["fullName"] as? String {
-                        self.nombreEquipoLargo = nombreLargo
-                    }
-                    if let nombreCorto = equipo["nameShow"] as? String{
-                        self.nombreEquipoCorto = nombreCorto
-                    }
-                    if let escudoUrl = equipo["shield"] as? String {
-                        if let imageEscudo = imagesEscudo[escudoUrl] {
-                            self.escudo = imageEscudo
-                        } else {
-                            if let url = URL(string: escudoUrl){
-                                if let data = try? Data(contentsOf: url){
-                                    if let imageEscudoDescargada = UIImage(data: data) {
-                                        self.imagesEscudo[escudoUrl] = imageEscudoDescargada
-                                        self.escudo = imageEscudoDescargada                                        
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if let entrenador = equipo["managerNow"] as? String {
-                        self.entrenador = entrenador
-                    }
-                    if let estadio = equipo["stadium"] as? String {
-                        self.estadio = estadio
-                    }
-                    if let estadioUrl = equipo["img_stadium"] as? String {
-                        if let imageEstadioYaDescargada = imagesEstadio[estadioUrl] {
-                            self.estadioFoto = imageEstadioYaDescargada
-                        } else {
-                            if let url = URL(string: estadioUrl){
-                                if let data = try? Data(contentsOf: url){
-                                    if let imageEstadioDescargada = UIImage(data: data) {
-                                        self.imagesEstadio[estadioUrl] = imageEstadioDescargada
-                                        self.estadioFoto = imageEstadioDescargada
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if let plantilla = equipo["squad"] as? [[String:Any]]{
-                        self.plantilla = plantilla
-                    }
+        let cola = DispatchQueue(label: "Descargando detalle de equipos")
+        cola.async {
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            }
+            defer {
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
             }
-        }catch let err  {
-            print("No puedo sacar el JSON:", (err as NSError).localizedDescription)
-            print(NSString(data: data, encoding: String.Encoding.utf8.rawValue) ?? "Ni idea de lo que esta pasando.")
+            if let data = try? Data(contentsOf: url!){
+                print("He entrado al if de descargar detalles de equipos y lo he hecho")
+                do {
+                    if let dic = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:Any] {
+                        print(dic)
+                        if let equipo = dic["team"] as? [String:Any]{
+                            if let nombreLargo = equipo["fullName"] as? String {
+                                DispatchQueue.main.async {
+                                    self.nombreEquipoLargo = nombreLargo
+                                }
+                            }
+                            if let nombreCorto = equipo["nameShow"] as? String{
+                                DispatchQueue.main.async {
+                                    self.nombreEquipoCorto = nombreCorto
+                                }
+                            }
+                            if let escudoUrl = equipo["shield"] as? String {
+                                if let imageEscudo = self.imagesEscudo[escudoUrl] {
+                                    DispatchQueue.main.async {
+                                        self.escudo = imageEscudo
+                                    }
+                                } else {
+                                    if let url = URL(string: escudoUrl){
+                                        if let data = try? Data(contentsOf: url){
+                                            if let imageEscudoDescargada = UIImage(data: data) {
+                                                DispatchQueue.main.async {
+                                                    self.imagesEscudo[escudoUrl] = imageEscudoDescargada
+                                                    self.escudo = imageEscudoDescargada
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            if let entrenador = equipo["managerNow"] as? String {
+                                DispatchQueue.main.async {
+                                    self.entrenador = entrenador
+                                }
+                            }
+                            if let estadio = equipo["stadium"] as? String {
+                                DispatchQueue.main.async {
+                                    self.estadio = estadio
+                                }
+                            }
+                            if let estadioUrl = equipo["img_stadium"] as? String {
+                                if let imageEstadioYaDescargada = self.imagesEstadio[estadioUrl] {
+                                    DispatchQueue.main.async {
+                                        self.estadioFoto = imageEstadioYaDescargada
+                                    }
+                                } else {
+                                    if let url = URL(string: estadioUrl){
+                                        if let data = try? Data(contentsOf: url){
+                                            if let imageEstadioDescargada = UIImage(data: data) {
+                                                DispatchQueue.main.async {
+                                                    self.imagesEstadio[estadioUrl] = imageEstadioDescargada
+                                                    self.estadioFoto = imageEstadioDescargada
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            if let plantilla = equipo["squad"] as? [[String:Any]]{
+                                DispatchQueue.main.async {
+                                    self.plantilla = plantilla
+                                }
+                            }
+                        }
+                    }
+                }catch let err  {
+                    print("No puedo sacar el JSON:", (err as NSError).localizedDescription)
+                    print(NSString(data: data, encoding: String.Encoding.utf8.rawValue) ?? "Ni idea de lo que esta pasando.")
+                }
+            }else {
+                print("Error: no se han podido descargar los datos.")
+                return
+            }
+            
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

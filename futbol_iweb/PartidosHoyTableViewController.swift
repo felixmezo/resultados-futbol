@@ -39,30 +39,38 @@ class PartidosHoyTableViewController: UITableViewController {
         let url = URL(string: urlClasificacion)
         print(url)
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        defer {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        }
-        
-        guard let data = try? Data(contentsOf: url!) else {
-            print("Error: no se han podido descargar los datos.")
-            return
-        }
-        
-        do {
-            if let dic = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:Any] {
-                print(dic)
-                if let dic2 = dic["matches"] as? [[String:Any]]{
-                    print(dic2)
-                    self.partidosHoy = dic2
-                    tableView.reloadData()
+        let cola = DispatchQueue(label: "Descargando partidos de hoy")
+        cola.async {
+            DispatchQueue.main.async {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            }
+            defer {
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 }
             }
-        }catch let err  {
-            print("No puedo sacar el JSON:", (err as NSError).localizedDescription)
-            print(NSString(data: data, encoding: String.Encoding.utf8.rawValue) ?? "Ni idea de lo que esta pasando.")
+            if let data = try? Data(contentsOf: url!){
+                print("He entrado al if de descargar los datos de partidos de hoy y lo he hecho")
+                do {
+                    if let dic = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:Any] {
+                        print(dic)
+                        if let dic2 = dic["matches"] as? [[String:Any]]{
+                            print(dic2)
+                            self.partidosHoy = dic2
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }catch let err  {
+                    print("No puedo sacar el JSON:", (err as NSError).localizedDescription)
+                    print(NSString(data: data, encoding: String.Encoding.utf8.rawValue) ?? "Ni idea de lo que esta pasando.")
+                }
+            }else {
+                print("Error: no se han podido descargar los datos.")
+                return
+            }
         }
-
     }
 
     // MARK: - Table view data source
