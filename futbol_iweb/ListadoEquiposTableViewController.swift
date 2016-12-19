@@ -20,6 +20,8 @@ class ListadoEquiposTableViewController: UITableViewController {
     
     fileprivate let API_FUTBOL_URL = "http://apiclient.resultados-futbol.com/scripts/api/api.php?key=833e3ee072e13520e85973b61b49f1c3&tz=Europe/Madrid&format=json&"
     
+    let session = URLSession(configuration: URLSessionConfiguration.default)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadListadoEquipos()
@@ -56,26 +58,33 @@ class ListadoEquiposTableViewController: UITableViewController {
 
                 }
             }
-            if let data = try? Data(contentsOf: url!){
-                print("He entrado al if de descargar el listado de equipos y lo he hecho")
-                do {
-                    if let dic = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:[[String:Any]]] {
-                        print(dic)
-                        if let dic2 = dic["team"] {
-                            self.equipos = dic2
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
+            let task = self.session.downloadTask(with: url!) {( location: URL?,
+                                                                response: URLResponse?,
+                                                                error: Error?) in
+                if error == nil && (response as! HTTPURLResponse).statusCode == 200 {
+                    if let data = try? Data(contentsOf: url!){
+                        print("He entrado al if de descargar el listado de equipos y lo he hecho")
+                        do {
+                            if let dic = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String:[[String:Any]]] {
+                                print(dic)
+                                if let dic2 = dic["team"] {
+                                    self.equipos = dic2
+                                    DispatchQueue.main.async {
+                                        self.tableView.reloadData()
+                                    }
+                                }
                             }
+                        }catch let err  {
+                            print("No puedo sacar el JSON:", (err as NSError).localizedDescription)
+                            print(NSString(data: data, encoding: String.Encoding.utf8.rawValue) ?? "Ni idea de lo que esta pasando.")
                         }
+                    }else {
+                        print("Error: no se han podido descargar los datos.")
+                        return
                     }
-                }catch let err  {
-                    print("No puedo sacar el JSON:", (err as NSError).localizedDescription)
-                    print(NSString(data: data, encoding: String.Encoding.utf8.rawValue) ?? "Ni idea de lo que esta pasando.")
                 }
-            }else {
-                print("Error: no se han podido descargar los datos.")
-                return
             }
+            task.resume()
         }
     }
     
