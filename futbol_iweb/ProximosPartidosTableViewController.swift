@@ -93,8 +93,7 @@ class ProximosPartidosTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return proximosPartidos.count
     }
-    
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "partidos cell", for: indexPath) as? PartidosTableViewCell
         
@@ -127,8 +126,6 @@ class ProximosPartidosTableViewController: UITableViewController {
         if let fechaPartido = partido["date"] as? String{
             cell?.fechaLabel?.text = fechaPartido
         }
-
-        
         if let imagenLocalUrl = partido["local_shield"] as? String {
             if let escudoLocal = self.imagesLocal[imagenLocalUrl] {
                 cell?.imagenLocal.image = escudoLocal
@@ -136,13 +133,12 @@ class ProximosPartidosTableViewController: UITableViewController {
                 if let URL_local = URL(string: imagenLocalUrl){
                     if let data = try? Data(contentsOf: URL_local){
                         if let imageLocal = UIImage(data: data) {
-                            // Guardar la imagen
-                            self.imagesLocal[imagenLocalUrl] = imageLocal
-                            cell?.imagenLocal.image = imageLocal
-                            
-                            // Actualizar la celda
-                            self.tableView.reloadRows(at: [indexPath], with: .automatic)
-                            
+                            DispatchQueue.main.async {
+                                // Guardar la imagen
+                                self.imagesLocal[imagenLocalUrl] = imageLocal
+                                // Actualizar la celda
+                                self.tableView.reloadRows(at: [indexPath], with: .fade)
+                            }
                         }
                     }
                 }
@@ -150,24 +146,23 @@ class ProximosPartidosTableViewController: UITableViewController {
         }
         if let imagenVisitanteUrl = partido["visitor_shield"] as? String {
             if let escudoVisitante = self.imagesVisitante[imagenVisitanteUrl] {
-                cell?.imagenLocal.image = escudoVisitante
+                cell?.imagenVisitante.image = escudoVisitante
             } else {
                 if let URL_visitante = URL(string: imagenVisitanteUrl){
                     if let data = try? Data(contentsOf: URL_visitante){
                         if let imageVisitante = UIImage(data: data) {
-                            // Guardar la imagen
-                            self.imagesVisitante[imagenVisitanteUrl] = imageVisitante
-                            cell?.imagenVisitante.image = imageVisitante
-                            
-                            // Actualizar la celda
-                            self.tableView.reloadRows(at: [indexPath], with: .automatic)
-                            
+                                DispatchQueue.main.async {
+                                    // Guardar la imagen
+                                    self.imagesVisitante[imagenVisitanteUrl] = imageVisitante
+                                    // Actualizar la celda
+                                    self.tableView.reloadRows(at: [indexPath], with: .fade)
+                                }                            
                         }
                     }
                 }
             }
         }
-        return cell!
+                return cell!
     }
 }
 

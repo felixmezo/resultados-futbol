@@ -30,8 +30,6 @@ class PartidosHoyTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        imagesLocal=[:]
-        imagesVisitante=[:]
     }
     
     func downloadPartidosHoy() {
@@ -122,25 +120,6 @@ class PartidosHoyTableViewController: UITableViewController {
         if let liga = partido["competition_name"] as? String{
             cell?.ligaLabel?.text = liga
         }
-        if let imagenLigaUrl = partido["cflag"] as? String {
-            if let banderaLiga = self.imagesLiga[imagenLigaUrl] {
-                cell?.imagenLiga.image = banderaLiga
-            } else {
-                if let URL_liga = URL(string: imagenLigaUrl){
-                    if let data = try? Data(contentsOf: URL_liga){
-                        if let imageLiga = UIImage(data: data) {
-                            // Guardar la imagen
-                            self.imagesLiga[imagenLigaUrl] = imageLiga
-                            cell?.imagenLiga.image = imageLiga
-                            
-                            // Actualizar la celda
-                            self.tableView.reloadRows(at: [indexPath], with: .automatic)
-                            
-                        }
-                    }
-                }
-            }
-        }
         if let imagenLocalUrl = partido["local_shield"] as? String {
             if let escudoLocal = self.imagesLocal[imagenLocalUrl] {
                 cell?.imagenLocal.image = escudoLocal
@@ -148,37 +127,55 @@ class PartidosHoyTableViewController: UITableViewController {
                 if let URL_local = URL(string: imagenLocalUrl){
                     if let data = try? Data(contentsOf: URL_local){
                         if let imageLocal = UIImage(data: data) {
-                            // Guardar la imagen
-                            self.imagesLocal[imagenLocalUrl] = imageLocal
-                            cell?.imagenLocal.image = imageLocal
-
-                            // Actualizar la celda
-                            self.tableView.reloadRows(at: [indexPath], with: .automatic)
-                            
+                            DispatchQueue.main.async {
+                                // Guardar la imagen
+                                self.imagesLocal[imagenLocalUrl] = imageLocal
+                                // Actualizar la celda
+                                self.tableView.reloadRows(at: [indexPath], with: .fade)
+                            }
                         }
                     }
                 }
             }
         }
+        
         if let imagenVisitanteUrl = partido["visitor_shield"] as? String {
             if let escudoVisitante = self.imagesVisitante[imagenVisitanteUrl] {
-                cell?.imagenLocal.image = escudoVisitante
+                cell?.imagenVisitante.image = escudoVisitante
             } else {
                 if let URL_visitante = URL(string: imagenVisitanteUrl){
                     if let data = try? Data(contentsOf: URL_visitante){
                         if let imageVisitante = UIImage(data: data) {
-                            // Guardar la imagen
-                            self.imagesVisitante[imagenVisitanteUrl] = imageVisitante
-                            cell?.imagenVisitante.image = imageVisitante
-                            
-                            // Actualizar la celda
-                            self.tableView.reloadRows(at: [indexPath], with: .automatic)
-                            
+                            DispatchQueue.main.async {
+                                // Guardar la imagen
+                                self.imagesVisitante[imagenVisitanteUrl] = imageVisitante
+                                // Actualizar la celda
+                                self.tableView.reloadRows(at: [indexPath], with: .fade)
+                            }
                         }
                     }
                 }
             }
         }
+        if let imagenLigaUrl = partido["cflag"] as? String {
+            if let banderaLiga = self.imagesLiga[imagenLigaUrl] {
+                cell?.imagenLiga.image = banderaLiga
+            } else {
+                if let URL_liga = URL(string: imagenLigaUrl){
+                    if let data = try? Data(contentsOf: URL_liga){
+                        if let imageLiga = UIImage(data: data) {
+                            DispatchQueue.main.async {
+                                // Guardar la imagen
+                                self.imagesLiga[imagenLigaUrl] = imageLiga
+                                // Actualizar la celda
+                                self.tableView.reloadRows(at: [indexPath], with: .fade)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         return cell!
     }
     
@@ -191,52 +188,4 @@ class PartidosHoyTableViewController: UITableViewController {
         print("fecha = \(dia)-\(mes)-\(año)")
         self.fechaHoy = "\(año)/\(mes)/\(dia)"
     }
-
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
